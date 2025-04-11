@@ -1,0 +1,11 @@
+svg {
+  height: 250px;
+}
+
+#hora {
+  /* 360 grados/ 12 horas = 30 grados ocupa cada hora */
+  /* 11 horas * 30 grados= 330 grados a las 11 */
+  /* Las 11 van desde los 330 hasta los 360 */
+  transform: rotate(333deg);
+  /* Cuidado: rotate rota en torno al punto (0, 0) */
+}
