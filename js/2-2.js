@@ -13,7 +13,7 @@ function dibuja() {
     ctx.lineWidth = 2;
 
     // Tablero
-    ctx.strokeRect(2, 2, 497, 247);
+    ctx.strokeRect(2, 2, 492, 242);
 
     // Columna
     ctx.fillStyle = "grey";
@@ -42,25 +42,45 @@ function anima() {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     requestAnimationFrame(anima);
     dibuja();
+    //console.log(posicionX, posicionY);
 }
 
 document.addEventListener("keydown", function(event) {
-    console.log(event.key);
+    // console.log(event.key);
     // Nombre teclas: ArrowUp, ArrowDown, ArrowLeft, ArrowRight
     switch (event.key) {
         case "ArrowUp":
-            posicionY -= 10;
+            if (!seChoca(posicionX, posicionY - 10)) {
+                posicionY -= 10;
+            }
             break;
         case "ArrowDown":
-            posicionY += 10;
+            if (!seChoca(posicionX, posicionY + 10)) {
+                posicionY += 10;
+            }
             break;
         case "ArrowLeft":
-            posicionX -= 10;
+            if (!seChoca(posicionX - 10, posicionY)) {
+                posicionX -= 10;
+            }
             break;
         case "ArrowRight":
-            posicionX += 10;
+            if (!seChoca(posicionX + 10, posicionY)) {
+                posicionX += 10;
+            }
             break;
         default:
             break;
     }
 })
+
+function seChoca(x, y) {
+    // Se choca es cierto cuando las coordenadas del centro de la ficha
+    // son menores al punto en el que, estando ahí, borde toca con el rectángulo
+    // Estos puntos son: cuando x<23, cuando y<23, cuando x>477  o cuando y>227
+    if (x < 23 || y < 23 || x > 477 || y > 227) {
+        return true;
+    }
+    return false;
+}
+
