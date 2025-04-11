@@ -81,6 +81,41 @@ function seChoca(x, y) {
     if (x < 23 || y < 23 || x > 477 || y > 227) {
         return true;
     }
+
+    // CALCULAR CUANDO CHOCA CON EL ROMBO
+    // Para saber cuándo se choca con el rombo hay que conocer la función de sus bordes.
+    //
+    // Los bordes del rombo están definidos por 4 funciones
+    // 1) Cuando x es >= que 230 y <0 que 250,
+    // e y es mayor que 105 y menor que 125, la función es f(y)=-x
+    //
+    // 2) Cuando x es >= que 250 y <0 que 270,
+    // e y es mayor que 105 y menor que 125, la función es f(y)=x
+    //
+    // 3) Cuando x es >= que 230 y <0 que 250,
+    // e y es menor que 125 y menor que 145, la función es f(y)=x
+    //
+    // 4) Cuando x es >= que 250 y <0 que 270,
+    // e y es menor que 125 y menor que 145, la función es f(y)=-x
+    // 
+    // Como el centro del rombo no está en el centro del recuadro,
+    // hay que restarle a (x,y) las coordenadas del centro.
+    //
+    // A ello habrá que sumarle o restarle lo necesario para que el rombo
+    // quede en el centro (la mitad de su altura), a lo que habrá que
+    // sumar/restar el radio de la esfera. Esto en total es 40.
+
+    if ((x >= 210 && x <= 250)) {
+        if (((y - 125) >= - (x - 250 + 40)) && ((y - 125) <= (x - 250 + 40))) {
+            return true;
+        }
+    } else if ((x >= 250 && x <= 290)) {
+        console.log(y);
+        if (((y - 125) >= ((x - 250) - 40)) && ((y - 125) <= -(x - 250) + 42)) {
+            return true
+        }
+    }
+
     return false;
 }
 
