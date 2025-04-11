@@ -1,0 +1,47 @@
+svg {
+  height: 250px;
+}
+
+#una {
+  transform: rotate(30deg);
+}
+
+#dos {
+  transform: rotate(60deg);
+}
+
+#tres {
+  transform: rotate(90deg);
+}
+
+#cuatro {
+  transform: rotate(120deg);
+}
+
+#cinco {
+  transform: rotate(150deg);
+}
+
+#seis {
+  transform: rotate(180deg);
+}
+
+#siete {
+  transform: rotate(210deg);
+}
+
+#ocho {
+  transform: rotate(240deg);
+}
+
+#nueve {
+  transform: rotate(270deg);
+}
+
+#diez {
+  transform: rotate(300deg);
+}
+
+#once {
+  transform: rotate(330deg);
+}
