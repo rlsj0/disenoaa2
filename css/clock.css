@@ -4,8 +4,14 @@ svg {
 
 #hora {
   /* 360 grados/ 12 horas = 30 grados ocupa cada hora */
-  /* 11 horas * 30 grados= 330 grados a las 11 */
+  /* 11 horas * 30 grados= 330 grados a las 11:00 */
   /* Las 11 van desde los 330 hasta los 360 */
   transform: rotate(333deg);
   /* Cuidado: rotate rota en torno al punto (0, 0) */
+}
+
+#minuto {
+  /* 360 grados / 60 minutos = 6 grados ocupa cada minuto */
+  /* 6 grados * 4 minutos = 24 grados a las XX:04 horas */
+  transform: rotate(24deg);
 }
