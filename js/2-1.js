@@ -25,5 +25,5 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.beginPath();
     ctx.arc(23, 23, 20, 0, 2 * Math.PI);
     ctx.fill();
-    ctx.endPath();
+    ctx.closePath();
 })
