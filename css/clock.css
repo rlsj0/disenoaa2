@@ -7,11 +7,18 @@ svg {
   /* 11 horas * 30 grados= 330 grados a las 11:00 */
   /* Las 11 van desde los 330 hasta los 360 */
   transform: rotate(333deg);
-  /* Cuidado: rotate rota en torno al punto (0, 0) */
+  /* Cuidado: rotate rota en torno al punto (0, 0). Esto exige poner el
+  min-widht y min-height como números negativos en el viewbox */
 }
 
 #minuto {
   /* 360 grados / 60 minutos = 6 grados ocupa cada minuto */
   /* 6 grados * 4 minutos = 24 grados a las XX:04 horas */
   transform: rotate(24deg);
+}
+
+#segundo {
+  /* 360 grados / 60 segundos = 6 grados ocupa cada segundo */
+  /* 6 grados * 38 segundos = 228 grados a las XX:XX:38 */
+  transform: rotate(228deg);
 }
