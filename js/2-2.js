@@ -3,11 +3,10 @@ let posicionX = 23;
 let posicionY = 23;
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Ojo: pasarle a setInterval una función sin paréntesis:
-    setInterval(drawCanvas, 16);
+    anima();
 })
 
-function drawCanvas() {
+function dibuja() {
     var canvas = document.getElementById("miCanvas");
     var ctx = canvas.getContext("2d");
     ctx.strokeStyle = "black";
@@ -37,23 +36,29 @@ function drawCanvas() {
     ctx.closePath();
 }
 
-// addEventListener con las teclas
-//
+function anima() {
+    var canvas = document.getElementById("miCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    requestAnimationFrame(anima);
+    dibuja();
+}
+
 document.addEventListener("keydown", function(event) {
     console.log(event.key);
     // Nombre teclas: ArrowUp, ArrowDown, ArrowLeft, ArrowRight
     switch (event.key) {
         case "ArrowUp":
-            posicionY -= 5;
+            posicionY -= 10;
             break;
         case "ArrowDown":
-            posicionY += 5;
+            posicionY += 10;
             break;
         case "ArrowLeft":
-            posicionX -= 5;
+            posicionX -= 10;
             break;
         case "ArrowRight":
-            posicionX += 5;
+            posicionX += 10;
             break;
         default:
             break;
