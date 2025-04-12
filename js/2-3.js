@@ -3,6 +3,8 @@ let posicionX = 23;
 let posicionY = 23;
 let timeOn = false;
 let time = 0.00;
+let timer;
+let win = false;
 
 document.addEventListener("DOMContentLoaded", function() {
     pintaTiempo();
@@ -50,6 +52,9 @@ function anima() {
 document.addEventListener("keydown", function(event) {
     // console.log(event.key);
     // Nombre teclas: ArrowUp, ArrowDown, ArrowLeft, ArrowRight
+    if (win == true) {
+        return;
+    }
     if (timeOn == false) {
         if (event.key == "ArrowUp" ||
             event.key == "ArrowDown" ||
@@ -131,11 +136,22 @@ function seChoca(x, y) {
 function pintaTiempo() {
     const temporizador = document.getElementById("temp");
     temporizador.innerText = time.toFixed(1) + "s";
+    if (haLlegado()) {
+        clearInterval(timer);
+    }
 }
 
 function comenzarTemporizador() {
-    setInterval(() => {
+    timer = setInterval(() => {
         time += 0.1;
         pintaTiempo();
     }, 100);
+}
+
+function haLlegado() {
+    if (posicionX > 470 && posicionY > 220) {
+        win = true;
+        return true
+    }
+    return false;
 }
